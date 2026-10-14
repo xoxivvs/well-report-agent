@@ -1,14 +1,14 @@
 # Ядро приложения
 streamlit==1.65.0
-st-styled==0.5.1            # импортируется как st_yled
+st-styled==0.5.1
 pandas==2.2.2
-numpy==1.26.4
+numpy>=1.26,<3
 openpyxl==3.1.5
 pyarrow==25.0.1
 altair==6.3.0
 
 # Отчёты и графики
-matplotlib==3.8.4
+matplotlib>=3.8
 reportlab==4.1.0
 pdfplumber==0.11.0
 

@@ -8,7 +8,22 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-import st_yled
+try:
+    import st_yled
+except ImportError:  # st-styled не установился — приложение должно работать и без стилей
+    class _StyledStub:
+        """Заглушка вместо st_yled: не даёт кастомизации стилей уронить приложение."""
+
+        @staticmethod
+        def init(*_args, **_kwargs):
+            return None
+
+        @staticmethod
+        def set(*_args, **_kwargs):
+            return None
+
+    st_yled = _StyledStub()
+
 import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # корень проекта в sys.path
