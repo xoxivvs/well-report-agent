@@ -1,0 +1,92 @@
+{
+  "color": {
+    "primary": {
+      "value": "#2F4F4F",
+      "description": "Тёмный сланцевый — основной цвет бренда, используется для хедеров, primary-кнопок"
+    },
+    "secondary": {
+      "value": "#FFA500",
+      "description": "Оранжевый акцент — CTA-кнопки, выделения, важные метрики"
+    },
+    "background": {
+      "value": "#F5F7FA",
+      "description": "Фон приложения"
+    },
+    "surface": {
+      "value": "#FFFFFF",
+      "description": "Фон карточек и модальных окон"
+    },
+    "text": {
+      "primary": { "value": "#1A1A1A", "description": "Основной текст" },
+      "secondary": { "value": "#5A6570", "description": "Вторичный текст, подписи" },
+      "inverse": { "value": "#FFFFFF", "description": "Текст на тёмном фоне" }
+    },
+    "status": {
+      "success": { "value": "#10B981" },
+      "warning": { "value": "#F59E0B" },
+      "error": { "value": "#EF4444" },
+      "info": { "value": "#3B82F6" }
+    },
+    "border": {
+      "value": "#E5E9F0",
+      "description": "Границы карточек и инпутов"
+    }
+  },
+
+  "typography": {
+    "fontFamily": {
+      "base": { "value": "Inter, system-ui, -apple-system, sans-serif" },
+      "mono": { "value": "JetBrains Mono, monospace" }
+    },
+    "fontSize": {
+      "h1": { "value": "32px", "lineHeight": "40px" },
+      "h2": { "value": "24px", "lineHeight": "32px" },
+      "h3": { "value": "20px", "lineHeight": "28px" },
+      "body": { "value": "16px", "lineHeight": "24px" },
+      "small": { "value": "14px", "lineHeight": "20px" },
+      "caption": { "value": "12px", "lineHeight": "16px" }
+    },
+    "fontWeight": {
+      "regular": { "value": 400 },
+      "medium": { "value": 500 },
+      "semibold": { "value": 600 },
+      "bold": { "value": 700 }
+    }
+  },
+
+  "spacing": {
+    "unit": { "value": "8px", "description": "Базовый шаг сетки" },
+    "xs": { "value": "4px" },
+    "sm": { "value": "8px" },
+    "md": { "value": "16px" },
+    "lg": { "value": "24px" },
+    "xl": { "value": "32px" },
+    "2xl": { "value": "48px" }
+  },
+
+  "radius": {
+    "sm": { "value": "4px" },
+    "md": { "value": "8px" },
+    "lg": { "value": "12px" },
+    "pill": { "value": "999px" }
+  },
+
+  "shadow": {
+    "sm": { "value": "0 1px 2px rgba(16,24,40,0.05)" },
+    "md": { "value": "0 4px 8px rgba(16,24,40,0.08)" },
+    "lg": { "value": "0 12px 24px rgba(16,24,40,0.10)" }
+  },
+
+  "grid": {
+    "columns": { "value": 12 },
+    "gutter": { "value": "16px" },
+    "maxWidth": { "value": "1280px" }
+  },
+
+  "breakpoints": {
+    "mobile": { "value": "640px" },
+    "tablet": { "value": "768px" },
+    "desktop": { "value": "1024px" },
+    "wide": { "value": "1280px" }
+  }
+}

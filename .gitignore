@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Кэши
+.pytest_cache/
+.ruff_cache/
+
+# Временные каталоги тестов (на всякий случай)
+well-report-tests-*/
+
+# Мусор от pip
+pip-metadata-*/
+pip-unpack-*/
+
+# Сгенерированные результаты (пересоздаются приложением)
+data/drafts/
+data/charts/
+data/sent/
+data/excel/
+
+# Секреты
+.env
+.streamlit/secrets.toml
+*.key
+
+# Системные файлы
+.DS_Store
+Thumbs.db

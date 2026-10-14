@@ -1,0 +1,20 @@
+# Конфигурация Ruff (линтер) — https://docs.astral.sh/ruff/
+
+line-length = 100
+
+[lint]
+select = ["E", "F", "W", "I"]
+ignore = [
+    "E501",   # длинные строки (строки сообщений/промптов допустимы)
+    "B008",
+]
+
+[lint.per-file-ignores]
+# app.py: sys.path-бутстрап идёт перед импортами пакетов проекта — это
+# намеренно (работа из любого каталога и без установленного пакета).
+"app.py" = ["E402"]
+"scripts/*" = ["E402"]
+"tests/*" = ["E402"]
+
+[lint.isort]
+known-first-party = ["src", "tools"]

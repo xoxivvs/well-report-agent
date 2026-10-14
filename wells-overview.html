@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Сводка по скважинам — НефтеСервис</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary:    '#2F4F4F',
+        secondary:  '#FFA500',
+        background: '#F5F7FA',
+        surface:    '#FFFFFF',
+        textmain:   '#1A1A1A',
+        textsec:    '#5A6570',
+        borderline: '#E5E9F0',
+        success:    '#10B981',
+        warning:    '#F59E0B',
+        danger:     '#EF4444'
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif']
+      },
+      boxShadow: {
+        md: '0 4px 8px rgba(16,24,40,0.08)',
+        lg: '0 12px 24px rgba(16,24,40,0.10)'
+      }
+    }
+  }
+}
+</script>
+</head>
+
+<body class="bg-background font-sans text-textmain antialiased">
+
+<!-- ===== Topbar ===== -->
+<header class="bg-primary text-white">
+  <div class="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-md bg-secondary flex items-center justify-center font-bold">Н</div>
+      <span class="font-semibold tracking-wide">НефтеСервис</span>
+    </div>
+    <nav class="hidden md:flex items-center gap-6 text-sm text-white/80">
+      <a href="#" class="hover:text-white">Скважины</a>
+      <a href="#" class="hover:text-white">Отчёты</a>
+      <a href="#" class="hover:text-white">Аналитика</a>
+      <a href="#" class="hover:text-white">Настройки</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition" aria-label="Уведомления">
+        🔔
+      </button>
+      <div class="w-9 h-9 rounded-full bg-secondary text-primary font-bold flex items-center justify-center">ВЛ</div>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-[1280px] mx-auto px-6 py-8">
+
+  <!-- ===== Breadcrumb + actions ===== -->
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+    <div>
+      <p class="text-sm text-textsec mb-1">Месторождение А → Куст 5</p>
+      <h1 class="text-[32px] leading-10 font-bold">Сводка по скважинам</h1>
+    </div>
+    <div class="flex gap-3">
+      <button class="px-4 py-2 rounded-md border border-borderline bg-surface text-sm font-medium hover:bg-gray-50 transition">
+        Экспорт в Excel
+      </button>
+      <button class="px-4 py-2 rounded-md bg-secondary text-white text-sm font-semibold shadow-md hover:brightness-110 transition">
+        Создать отчёт
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== Filter row ===== -->
+  <div class="grid grid-cols-12 gap-4 mb-6">
+    <div class="col-span-12 md:col-span-3">
+      <label class="block text-sm font-medium mb-1">Период</label>
+      <select class="w-full px-3 py-2 rounded-md border border-borderline bg-surface text-sm focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none">
+        <option>Октябрь 2026</option>
+        <option>Сентябрь 2026</option>
+        <option>Август 2026</option>
+      </select>
+    </div>
+    <div class="col-span-12 md:col-span-3">
+      <label class="block text-sm font-medium mb-1">Статус</label>
+      <select class="w-full px-3 py-2 rounded-md border border-borderline bg-surface text-sm focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none">
+        <option>Все</option>
+        <option>В работе</option>
+        <option>В простое</option>
+        <option>На ремонте</option>
+      </select>
+    </div>
+    <div class="col-span-12 md:col-span-4">
+      <label class="block text-sm font-medium mb-1">Поиск по номеру скважины</label>
+      <input type="text" placeholder="Например: Скв-005"
+             class="w-full px-3 py-2 rounded-md border border-borderline bg-surface text-sm focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none">
+    </div>
+    <div class="col-span-12 md:col-span-2 flex items-end">
+      <button class="w-full px-4 py-2 rounded-md bg-primary text-white text-sm font-medium hover:brightness-110 transition">
+        Применить
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== KPI cards ===== -->
+  <div class="grid grid-cols-12 gap-4 mb-8">
+
+    <div class="col-span-12 sm:col-span-6 lg:col-span-3 bg-surface rounded-lg shadow-md p-5 border border-borderline">
+      <p class="text-sm text-textsec mb-1">Всего скважин</p>
+      <p class="text-[32px] leading-10 font-bold">42</p>
+      <p class="text-xs text-success mt-2">▲ +3 за месяц</p>
+    </div>
+
+    <div class="col-span-12 sm:col-span-6 lg:col-span-3 bg-surface rounded-lg shadow-md p-5 border border-borderline">
+      <p class="text-sm text-textsec mb-1">В работе</p>
+      <p class="text-[32px] leading-10 font-bold">38</p>
+      <p class="text-xs text-textsec mt-2">90% фонда</p>
+    </div>
+
+    <div class="col-span-12 sm:col-span-6 lg:col-span-3 bg-surface rounded-lg shadow-md p-5 border border-borderline">
+      <p class="text-sm text-textsec mb-1">Средний дебит</p>
+      <p class="text-[32px] leading-10 font-bold">78,4 <span class="text-base font-medium text-textsec">т/сут</span></p>
+      <p class="text-xs text-danger mt-2">▼ −2,1% к сентябрю</p>
+    </div>
+
+    <div class="col-span-12 sm:col-span-6 lg:col-span-3 bg-surface rounded-lg shadow-md p-5 border border-borderline">
+      <p class="text-sm text-textsec mb-1">Аномалии</p>
+      <p class="text-[32px] leading-10 font-bold text-warning">5</p>
+      <p class="text-xs text-textsec mt-2">Требуют внимания</p>
+    </div>
+
+  </div>
+
+  <!-- ===== Chart placeholder ===== -->
+  <div class="bg-surface rounded-lg shadow-md border border-borderline p-6 mb-8">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-xl font-semibold">Динамика добычи за период</h2>
+      <div class="flex gap-2">
+        <button class="px-3 py-1 text-xs rounded-md bg-background border border-borderline">Неделя</button>
+        <button class="px-3 py-1 text-xs rounded-md bg-primary text-white">Месяц</button>
+        <button class="px-3 py-1 text-xs rounded-md bg-background border border-borderline">Квартал</button>
+      </div>
+    </div>
+    <div class="h-72 rounded-md bg-gradient-to-b from-[#2F4F4F]/5 to-transparent border border-dashed border-borderline flex items-center justify-center text-textsec text-sm">
+      [ Здесь будет график — Chart.js / Recharts ]
+    </div>
+  </div>
+
+  <!-- ===== Table ===== -->
+  <div class="bg-surface rounded-lg shadow-md border border-borderline overflow-hidden">
+    <div class="px-6 py-4 flex items-center justify-between border-b border-borderline">
+      <h2 class="text-xl font-semibold">Скважины</h2>
+      <a href="#" class="text-sm text-secondary font-medium hover:underline">Показать все →</a>
+    </div>
+    <table class="w-full text-sm">
+      <thead class="bg-background text-textsec">
+        <tr>
+          <th class="text-left font-medium px-6 py-3">Скважина</th>
+          <th class="text-left font-medium px-6 py-3">Месторождение</th>
+          <th class="text-right font-medium px-6 py-3">Дебит, т/сут</th>
+          <th class="text-right font-medium px-6 py-3">Обводнённость</th>
+          <th class="text-center font-medium px-6 py-3">Статус</th>
+          <th class="text-right font-medium px-6 py-3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t border-borderline hover:bg-background/60 transition">
+          <td class="px-6 py-4 font-medium">Скв-005</td>
+          <td class="px-6 py-4 text-textsec">Месторождение А</td>
+          <td class="px-6 py-4 text-right">125,9</td>
+          <td class="px-6 py-4 text-right">45,3%</td>
+          <td class="px-6 py-4 text-center">
+            <span class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs bg-success/10 text-success font-medium">
+              ● В работе
+            </span>
+          </td>
+          <td class="px-6 py-4 text-right">
+            <button class="text-secondary font-medium hover:underline">Подробнее</button>
+          </td>
+        </tr>
+        <tr class="border-t border-borderline hover:bg-background/60 transition">
+          <td class="px-6 py-4 font-medium">Скв-007</td>
+          <td class="px-6 py-4 text-textsec">Месторождение Б</td>
+          <td class="px-6 py-4 text-right">36,1</td>
+          <td class="px-6 py-4 text-right">25,9%</td>
+          <td class="px-6 py-4 text-center">
+            <span class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs bg-warning/10 text-warning font-medium">
+              ● Аномалия
+            </span>
+          </td>
+          <td class="px-6 py-4 text-right">
+            <button class="text-secondary font-medium hover:underline">Подробнее</button>
+          </td>
+        </tr>
+        <tr class="border-t border-borderline hover:bg-background/60 transition">
+          <td class="px-6 py-4 font-medium">Скв-012</td>
+          <td class="px-6 py-4 text-textsec">Месторождение В</td>
+          <td class="px-6 py-4 text-right">—</td>
+          <td class="px-6 py-4 text-right">—</td>
+          <td class="px-6 py-4 text-center">
+            <span class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs bg-danger/10 text-danger font-medium">
+              ● На ремонте
+            </span>
+          </td>
+          <td class="px-6 py-4 text-right">
+            <button class="text-secondary font-medium hover:underline">Подробнее</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</main>
+</body>
+</html>

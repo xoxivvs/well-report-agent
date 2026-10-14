@@ -1,0 +1,24 @@
+# Ядро приложения
+streamlit==1.65.0
+st-styled==0.5.1            # импортируется как st_yled
+pandas==2.2.2
+numpy==1.26.4
+openpyxl==3.1.5
+pyarrow==25.0.1
+altair==6.3.0
+
+# Отчёты и графики
+matplotlib==3.8.4
+reportlab==4.1.0
+pdfplumber==0.11.0
+
+# Оркестрация агента
+langgraph==1.2.12
+
+# LLM и HTTP
+requests==2.34.2
+ollama==0.6.3
+
+# Утилиты
+python-dotenv==1.2.4
+Faker==25.0.0
